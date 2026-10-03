@@ -1,0 +1,2517 @@
+{
+  "version": 1,
+  "root": "/home/ace/Projects/Plumb-cli",
+  "built_at": "2026-10-03T15:24:02.736802Z",
+  "files": {
+    ".gitignore": {
+      "size": 72,
+      "mtime_ns": 1791037851982493165,
+      "sha256": "704db887679244902a46e5821dc0e59f6ddee346559c8707d8dc10d43e64ecd4",
+      "language": null,
+      "parsed": "fallback",
+      "symbols": [],
+      "imports": [],
+      "external_imports": [],
+      "git": {
+        "commits": 1,
+        "last_commit": "2026-10-03T15:36:40+01:00",
+        "recent_subjects": [
+          "feat: add initial project structure and core functionality for Codebase Tutor"
+        ]
+      },
+      "summary": null
+    },
+    "README.md": {
+      "size": 325,
+      "mtime_ns": 1791027260673202880,
+      "sha256": "19614dda374ab0f0ee1679a462604c5d48cc6c7602568fe78615872a1725eb23",
+      "language": "markdown",
+      "parsed": "symbols",
+      "symbols": [],
+      "imports": [],
+      "external_imports": [],
+      "git": {
+        "commits": 1,
+        "last_commit": "2026-10-03T12:33:07+01:00",
+        "recent_subjects": [
+          "Initial commit"
+        ]
+      },
+      "summary": null
+    },
+    "codebase-tutor-architecture.md": {
+      "size": 12564,
+      "mtime_ns": 1791026908810335776,
+      "sha256": "d55a2f998f3a45e3328cb60d52959db3e6d4184ba46bc5f19a41b219236c0b26",
+      "language": "markdown",
+      "parsed": "symbols",
+      "symbols": [],
+      "imports": [],
+      "external_imports": [],
+      "git": {
+        "commits": 1,
+        "last_commit": "2026-10-03T15:36:40+01:00",
+        "recent_subjects": [
+          "feat: add initial project structure and core functionality for Codebase Tutor"
+        ]
+      },
+      "summary": null
+    },
+    "config.example.toml": {
+      "size": 266,
+      "mtime_ns": 1791037770343831310,
+      "sha256": "c0ff187eaa3155321e850db336df0070f3bd3132cd79fdc0e4c5d7d80f5dab57",
+      "language": "toml",
+      "parsed": "symbols",
+      "symbols": [],
+      "imports": [],
+      "external_imports": [],
+      "git": {
+        "commits": 1,
+        "last_commit": "2026-10-03T15:36:40+01:00",
+        "recent_subjects": [
+          "feat: add initial project structure and core functionality for Codebase Tutor"
+        ]
+      },
+      "summary": null
+    },
+    "pyproject.toml": {
+      "size": 516,
+      "mtime_ns": 1791040856156865303,
+      "sha256": "2c1bb4f4fb962fb7806544731aced9364e3dde1215021c5534613e068bfd1c32",
+      "language": "toml",
+      "parsed": "symbols",
+      "symbols": [],
+      "imports": [],
+      "external_imports": [],
+      "git": {
+        "commits": 1,
+        "last_commit": "2026-10-03T15:36:40+01:00",
+        "recent_subjects": [
+          "feat: add initial project structure and core functionality for Codebase Tutor"
+        ]
+      },
+      "summary": null
+    },
+    "src/plumb/__init__.py": {
+      "size": 56,
+      "mtime_ns": 1791037770333973144,
+      "sha256": "41d5e7733828fef915f12d229e37573f4831e23f81a19121b49d869b65303dd1",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [],
+      "imports": [],
+      "external_imports": [],
+      "git": {
+        "commits": 1,
+        "last_commit": "2026-10-03T15:36:40+01:00",
+        "recent_subjects": [
+          "feat: add initial project structure and core functionality for Codebase Tutor"
+        ]
+      },
+      "summary": null
+    },
+    "src/plumb/cli/__init__.py": {
+      "size": 47,
+      "mtime_ns": 1791037770333973144,
+      "sha256": "a09c9f599545b22f3843dcb3204c905993796b7e375aef5d6dcdfca97dc59e58",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [],
+      "imports": [],
+      "external_imports": [],
+      "git": {
+        "commits": 1,
+        "last_commit": "2026-10-03T15:36:40+01:00",
+        "recent_subjects": [
+          "feat: add initial project structure and core functionality for Codebase Tutor"
+        ]
+      },
+      "summary": null
+    },
+    "src/plumb/cli/app.py": {
+      "size": 1487,
+      "mtime_ns": 1791041030397283482,
+      "sha256": "40c653a68cc4702ecfd6c3aa8b235b47e838fa4d668993bf5154de4506430987",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "_refresh_repo_map",
+          "parent": null,
+          "start_line": 17,
+          "end_line": 26
+        },
+        {
+          "kind": "function",
+          "name": "plan",
+          "parent": null,
+          "start_line": 30,
+          "end_line": 35
+        },
+        {
+          "kind": "function",
+          "name": "review",
+          "parent": null,
+          "start_line": 39,
+          "end_line": 42
+        },
+        {
+          "kind": "function",
+          "name": "tour",
+          "parent": null,
+          "start_line": 46,
+          "end_line": 49
+        }
+      ],
+      "imports": [
+        {
+          "module": "collections",
+          "line": 3,
+          "names": [
+            "Counter"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "datetime",
+          "line": 4,
+          "names": [
+            "UTC"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "datetime",
+          "line": 4,
+          "names": [
+            "datetime"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "typer",
+          "line": 6,
+          "names": [],
+          "resolved": null
+        },
+        {
+          "module": "plumb.memory.paths",
+          "line": 8,
+          "names": [
+            "find_project_root"
+          ],
+          "resolved": "src/plumb/memory/paths.py"
+        },
+        {
+          "module": "plumb.memory.paths",
+          "line": 8,
+          "names": [
+            "find_tutor_dir"
+          ],
+          "resolved": "src/plumb/memory/paths.py"
+        },
+        {
+          "module": "plumb.repomap.builder",
+          "line": 9,
+          "names": [
+            "build_repo_map"
+          ],
+          "resolved": "src/plumb/repomap/builder.py"
+        }
+      ],
+      "external_imports": [
+        "collections",
+        "datetime",
+        "typer"
+      ],
+      "git": {
+        "commits": 1,
+        "last_commit": "2026-10-03T15:36:40+01:00",
+        "recent_subjects": [
+          "feat: add initial project structure and core functionality for Codebase Tutor"
+        ]
+      },
+      "summary": null
+    },
+    "src/plumb/config.py": {
+      "size": 139,
+      "mtime_ns": 1791037770335831246,
+      "sha256": "01479a710e68970e590b2b73b78e0cd9e83adef27ec941dbb181201e9400e436",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [],
+      "imports": [
+        {
+          "module": "pathlib",
+          "line": 3,
+          "names": [
+            "Path"
+          ],
+          "resolved": null
+        }
+      ],
+      "external_imports": [
+        "pathlib"
+      ],
+      "git": {
+        "commits": 1,
+        "last_commit": "2026-10-03T15:36:40+01:00",
+        "recent_subjects": [
+          "feat: add initial project structure and core functionality for Codebase Tutor"
+        ]
+      },
+      "summary": null
+    },
+    "src/plumb/engine/__init__.py": {
+      "size": 55,
+      "mtime_ns": 1791037770333973144,
+      "sha256": "38a76aa0dde4b02b382cc03ef50ec096d53d9d7fcdbc867a3340b4fbb1fd34c0",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [],
+      "imports": [],
+      "external_imports": [],
+      "git": {
+        "commits": 1,
+        "last_commit": "2026-10-03T15:36:40+01:00",
+        "recent_subjects": [
+          "feat: add initial project structure and core functionality for Codebase Tutor"
+        ]
+      },
+      "summary": null
+    },
+    "src/plumb/memory/__init__.py": {
+      "size": 32,
+      "mtime_ns": 1791037770333973144,
+      "sha256": "a0faa12967d3f463d6e45e92378cda4d2b36557eaa3499aca60d80ff1312accf",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [],
+      "imports": [],
+      "external_imports": [],
+      "git": {
+        "commits": 1,
+        "last_commit": "2026-10-03T15:36:40+01:00",
+        "recent_subjects": [
+          "feat: add initial project structure and core functionality for Codebase Tutor"
+        ]
+      },
+      "summary": null
+    },
+    "src/plumb/memory/commands.py": {
+      "size": 116,
+      "mtime_ns": 1791039121829787489,
+      "sha256": "62216932841793a41b3108681031c3e4c391003e822e21ee72e431c8a8813a94",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [],
+      "imports": [
+        {
+          "module": "typing",
+          "line": 3,
+          "names": [
+            "Literal"
+          ],
+          "resolved": null
+        }
+      ],
+      "external_imports": [
+        "typing"
+      ],
+      "git": {
+        "commits": 0,
+        "last_commit": null,
+        "recent_subjects": []
+      },
+      "summary": null
+    },
+    "src/plumb/memory/decisions.py": {
+      "size": 954,
+      "mtime_ns": 1791039121833787521,
+      "sha256": "3a6fe67bb0633c5a189efc339fc8aa8789daf00ab53af11c9ec576273634ca04",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "Decision",
+          "parent": null,
+          "start_line": 17,
+          "end_line": 25
+        },
+        {
+          "kind": "class",
+          "name": "Decisions",
+          "parent": null,
+          "start_line": 28,
+          "end_line": 29
+        },
+        {
+          "kind": "function",
+          "name": "load_decisions",
+          "parent": null,
+          "start_line": 32,
+          "end_line": 33
+        },
+        {
+          "kind": "function",
+          "name": "save_decisions",
+          "parent": null,
+          "start_line": 36,
+          "end_line": 37
+        }
+      ],
+      "imports": [
+        {
+          "module": "pathlib",
+          "line": 3,
+          "names": [
+            "Path"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "typing",
+          "line": 4,
+          "names": [
+            "Literal"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "uuid",
+          "line": 5,
+          "names": [
+            "uuid4"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 7,
+          "names": [
+            "AwareDatetime"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 7,
+          "names": [
+            "BaseModel"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 7,
+          "names": [
+            "Field"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "plumb.memory.commands",
+          "line": 9,
+          "names": [
+            "Command"
+          ],
+          "resolved": "src/plumb/memory/commands.py"
+        },
+        {
+          "module": "plumb.memory.io",
+          "line": 10,
+          "names": [
+            "load_json"
+          ],
+          "resolved": "src/plumb/memory/io.py"
+        },
+        {
+          "module": "plumb.memory.io",
+          "line": 10,
+          "names": [
+            "save_json"
+          ],
+          "resolved": "src/plumb/memory/io.py"
+        }
+      ],
+      "external_imports": [
+        "pathlib",
+        "pydantic",
+        "typing",
+        "uuid"
+      ],
+      "git": {
+        "commits": 0,
+        "last_commit": null,
+        "recent_subjects": []
+      },
+      "summary": null
+    },
+    "src/plumb/memory/io.py": {
+      "size": 2204,
+      "mtime_ns": 1791039121875787861,
+      "sha256": "61318d1bb426497a2e20930ea34e2eb1ae7214d517a5f05d7198af2175cd836e",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "CorruptMemoryFile",
+          "parent": null,
+          "start_line": 10,
+          "end_line": 15
+        },
+        {
+          "kind": "function",
+          "name": "__init__",
+          "parent": "CorruptMemoryFile",
+          "start_line": 13,
+          "end_line": 15
+        },
+        {
+          "kind": "function",
+          "name": "load_json",
+          "parent": null,
+          "start_line": 18,
+          "end_line": 25
+        },
+        {
+          "kind": "function",
+          "name": "save_json",
+          "parent": null,
+          "start_line": 28,
+          "end_line": 40
+        },
+        {
+          "kind": "function",
+          "name": "append_jsonl",
+          "parent": null,
+          "start_line": 43,
+          "end_line": 49
+        },
+        {
+          "kind": "function",
+          "name": "read_jsonl",
+          "parent": null,
+          "start_line": 52,
+          "end_line": 64
+        }
+      ],
+      "imports": [
+        {
+          "module": "os",
+          "line": 3,
+          "names": [],
+          "resolved": null
+        },
+        {
+          "module": "tempfile",
+          "line": 4,
+          "names": [],
+          "resolved": null
+        },
+        {
+          "module": "pathlib",
+          "line": 5,
+          "names": [
+            "Path"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 7,
+          "names": [
+            "BaseModel"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 7,
+          "names": [
+            "ValidationError"
+          ],
+          "resolved": null
+        }
+      ],
+      "external_imports": [
+        "os",
+        "pathlib",
+        "pydantic",
+        "tempfile"
+      ],
+      "git": {
+        "commits": 0,
+        "last_commit": null,
+        "recent_subjects": []
+      },
+      "summary": null
+    },
+    "src/plumb/memory/mastery.py": {
+      "size": 953,
+      "mtime_ns": 1791039121827787472,
+      "sha256": "85a1f983a969b72c8ca3675bc499058503c6a9a256fdb2eb8dc38c73bd74d05d",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "Concept",
+          "parent": null,
+          "start_line": 16,
+          "end_line": 22
+        },
+        {
+          "kind": "class",
+          "name": "Mastery",
+          "parent": null,
+          "start_line": 25,
+          "end_line": 26
+        },
+        {
+          "kind": "function",
+          "name": "load_mastery",
+          "parent": null,
+          "start_line": 29,
+          "end_line": 30
+        },
+        {
+          "kind": "function",
+          "name": "save_mastery",
+          "parent": null,
+          "start_line": 33,
+          "end_line": 34
+        }
+      ],
+      "imports": [
+        {
+          "module": "pathlib",
+          "line": 3,
+          "names": [
+            "Path"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "typing",
+          "line": 4,
+          "names": [
+            "Annotated"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "typing",
+          "line": 4,
+          "names": [
+            "Literal"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 6,
+          "names": [
+            "AwareDatetime"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 6,
+          "names": [
+            "BaseModel"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 6,
+          "names": [
+            "Field"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 6,
+          "names": [
+            "StringConstraints"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "plumb.memory.io",
+          "line": 8,
+          "names": [
+            "load_json"
+          ],
+          "resolved": "src/plumb/memory/io.py"
+        },
+        {
+          "module": "plumb.memory.io",
+          "line": 8,
+          "names": [
+            "save_json"
+          ],
+          "resolved": "src/plumb/memory/io.py"
+        }
+      ],
+      "external_imports": [
+        "pathlib",
+        "pydantic",
+        "typing"
+      ],
+      "git": {
+        "commits": 0,
+        "last_commit": null,
+        "recent_subjects": []
+      },
+      "summary": null
+    },
+    "src/plumb/memory/paths.py": {
+      "size": 619,
+      "mtime_ns": 1791039121824787448,
+      "sha256": "5a7f293956ac89060e465a63e8f9cb7cbc94fde417c7962d5dd0a4040aa0c804",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "find_project_root",
+          "parent": null,
+          "start_line": 8,
+          "end_line": 14
+        },
+        {
+          "kind": "function",
+          "name": "find_tutor_dir",
+          "parent": null,
+          "start_line": 17,
+          "end_line": 19
+        }
+      ],
+      "imports": [
+        {
+          "module": "pathlib",
+          "line": 3,
+          "names": [
+            "Path"
+          ],
+          "resolved": null
+        }
+      ],
+      "external_imports": [
+        "pathlib"
+      ],
+      "git": {
+        "commits": 0,
+        "last_commit": null,
+        "recent_subjects": []
+      },
+      "summary": null
+    },
+    "src/plumb/memory/sessions.py": {
+      "size": 1013,
+      "mtime_ns": 1791039121836787545,
+      "sha256": "134fe7525e9b6052b46d87ca933f245f835ebb28844cb0466ae948f209ca3fa7",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "SessionEvent",
+          "parent": null,
+          "start_line": 15,
+          "end_line": 19
+        },
+        {
+          "kind": "function",
+          "name": "new_session_path",
+          "parent": null,
+          "start_line": 22,
+          "end_line": 25
+        },
+        {
+          "kind": "function",
+          "name": "append_event",
+          "parent": null,
+          "start_line": 28,
+          "end_line": 29
+        },
+        {
+          "kind": "function",
+          "name": "read_session",
+          "parent": null,
+          "start_line": 32,
+          "end_line": 33
+        }
+      ],
+      "imports": [
+        {
+          "module": "datetime",
+          "line": 3,
+          "names": [
+            "UTC"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "datetime",
+          "line": 3,
+          "names": [
+            "datetime"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pathlib",
+          "line": 4,
+          "names": [
+            "Path"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "typing",
+          "line": 5,
+          "names": [
+            "Any"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 7,
+          "names": [
+            "AwareDatetime"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 7,
+          "names": [
+            "BaseModel"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 7,
+          "names": [
+            "Field"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "plumb.memory.commands",
+          "line": 9,
+          "names": [
+            "Command"
+          ],
+          "resolved": "src/plumb/memory/commands.py"
+        },
+        {
+          "module": "plumb.memory.io",
+          "line": 10,
+          "names": [
+            "append_jsonl"
+          ],
+          "resolved": "src/plumb/memory/io.py"
+        },
+        {
+          "module": "plumb.memory.io",
+          "line": 10,
+          "names": [
+            "read_jsonl"
+          ],
+          "resolved": "src/plumb/memory/io.py"
+        }
+      ],
+      "external_imports": [
+        "datetime",
+        "pathlib",
+        "pydantic",
+        "typing"
+      ],
+      "git": {
+        "commits": 0,
+        "last_commit": null,
+        "recent_subjects": []
+      },
+      "summary": null
+    },
+    "src/plumb/memory/skipped.py": {
+      "size": 768,
+      "mtime_ns": 1791039121831787504,
+      "sha256": "c95fabb4beacc2c4546d0015cf82ee570ea3fe0cf3eebce78c2f9f54cec9147a",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "SkippedQuestion",
+          "parent": null,
+          "start_line": 14,
+          "end_line": 19
+        },
+        {
+          "kind": "class",
+          "name": "Skipped",
+          "parent": null,
+          "start_line": 22,
+          "end_line": 23
+        },
+        {
+          "kind": "function",
+          "name": "load_skipped",
+          "parent": null,
+          "start_line": 26,
+          "end_line": 27
+        },
+        {
+          "kind": "function",
+          "name": "save_skipped",
+          "parent": null,
+          "start_line": 30,
+          "end_line": 31
+        }
+      ],
+      "imports": [
+        {
+          "module": "pathlib",
+          "line": 3,
+          "names": [
+            "Path"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "uuid",
+          "line": 4,
+          "names": [
+            "uuid4"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 6,
+          "names": [
+            "AwareDatetime"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 6,
+          "names": [
+            "BaseModel"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 6,
+          "names": [
+            "Field"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "plumb.memory.commands",
+          "line": 8,
+          "names": [
+            "Command"
+          ],
+          "resolved": "src/plumb/memory/commands.py"
+        },
+        {
+          "module": "plumb.memory.io",
+          "line": 9,
+          "names": [
+            "load_json"
+          ],
+          "resolved": "src/plumb/memory/io.py"
+        },
+        {
+          "module": "plumb.memory.io",
+          "line": 9,
+          "names": [
+            "save_json"
+          ],
+          "resolved": "src/plumb/memory/io.py"
+        }
+      ],
+      "external_imports": [
+        "pathlib",
+        "pydantic",
+        "uuid"
+      ],
+      "git": {
+        "commits": 0,
+        "last_commit": null,
+        "recent_subjects": []
+      },
+      "summary": null
+    },
+    "src/plumb/model/__init__.py": {
+      "size": 68,
+      "mtime_ns": 1791037770333973144,
+      "sha256": "a156f765500ab088eb2a82df6e32554943afb7e8dbdd527bdeb0640d68d0725c",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [],
+      "imports": [],
+      "external_imports": [],
+      "git": {
+        "commits": 1,
+        "last_commit": "2026-10-03T15:36:40+01:00",
+        "recent_subjects": [
+          "feat: add initial project structure and core functionality for Codebase Tutor"
+        ]
+      },
+      "summary": null
+    },
+    "src/plumb/repomap/__init__.py": {
+      "size": 83,
+      "mtime_ns": 1791040911339474551,
+      "sha256": "47c3b772a3f836fb2e64560c24f831bac4a95893de7cce7e92cc2eafb5c44ce4",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [],
+      "imports": [],
+      "external_imports": [],
+      "git": {
+        "commits": 0,
+        "last_commit": null,
+        "recent_subjects": []
+      },
+      "summary": null
+    },
+    "src/plumb/repomap/builder.py": {
+      "size": 3702,
+      "mtime_ns": 1791040999350030782,
+      "sha256": "eb7e945b0cdf0108b050bf6a03c31a6b9105966d9bfb4038c2d5f54816767fda",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "_sha256",
+          "parent": null,
+          "start_line": 23,
+          "end_line": 24
+        },
+        {
+          "kind": "function",
+          "name": "_record",
+          "parent": null,
+          "start_line": 27,
+          "end_line": 53
+        },
+        {
+          "kind": "function",
+          "name": "_resolve",
+          "parent": null,
+          "start_line": 56,
+          "end_line": 81
+        },
+        {
+          "kind": "function",
+          "name": "build_repo_map",
+          "parent": null,
+          "start_line": 84,
+          "end_line": 111
+        }
+      ],
+      "imports": [
+        {
+          "module": "hashlib",
+          "line": 3,
+          "names": [],
+          "resolved": null
+        },
+        {
+          "module": "datetime",
+          "line": 4,
+          "names": [
+            "datetime"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pathlib",
+          "line": 5,
+          "names": [
+            "Path"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "plumb.memory.io",
+          "line": 7,
+          "names": [
+            "load_json"
+          ],
+          "resolved": "src/plumb/memory/io.py"
+        },
+        {
+          "module": "plumb.memory.io",
+          "line": 7,
+          "names": [
+            "save_json"
+          ],
+          "resolved": "src/plumb/memory/io.py"
+        },
+        {
+          "module": "plumb.repomap.entry_points",
+          "line": 8,
+          "names": [
+            "find_entry_points"
+          ],
+          "resolved": "src/plumb/repomap/entry_points.py"
+        },
+        {
+          "module": "plumb.repomap.files",
+          "line": 9,
+          "names": [
+            "list_repo_files"
+          ],
+          "resolved": "src/plumb/repomap/files.py"
+        },
+        {
+          "module": "plumb.repomap.git",
+          "line": 10,
+          "names": [
+            "read_history"
+          ],
+          "resolved": "src/plumb/repomap/git.py"
+        },
+        {
+          "module": "plumb.repomap.imports",
+          "line": 11,
+          "names": [
+            "JsResolver"
+          ],
+          "resolved": "src/plumb/repomap/imports.py"
+        },
+        {
+          "module": "plumb.repomap.imports",
+          "line": 11,
+          "names": [
+            "PythonResolver"
+          ],
+          "resolved": "src/plumb/repomap/imports.py"
+        },
+        {
+          "module": "plumb.repomap.model",
+          "line": 12,
+          "names": [
+            "FILE_NAME"
+          ],
+          "resolved": "src/plumb/repomap/model.py"
+        },
+        {
+          "module": "plumb.repomap.model",
+          "line": 12,
+          "names": [
+            "MAP_VERSION"
+          ],
+          "resolved": "src/plumb/repomap/model.py"
+        },
+        {
+          "module": "plumb.repomap.model",
+          "line": 12,
+          "names": [
+            "FileRecord"
+          ],
+          "resolved": "src/plumb/repomap/model.py"
+        },
+        {
+          "module": "plumb.repomap.model",
+          "line": 12,
+          "names": [
+            "GitInfo"
+          ],
+          "resolved": "src/plumb/repomap/model.py"
+        },
+        {
+          "module": "plumb.repomap.model",
+          "line": 12,
+          "names": [
+            "Import"
+          ],
+          "resolved": "src/plumb/repomap/model.py"
+        },
+        {
+          "module": "plumb.repomap.model",
+          "line": 12,
+          "names": [
+            "RepoMap"
+          ],
+          "resolved": "src/plumb/repomap/model.py"
+        },
+        {
+          "module": "plumb.repomap.parse",
+          "line": 20,
+          "names": [
+            "parse_file"
+          ],
+          "resolved": "src/plumb/repomap/parse.py"
+        }
+      ],
+      "external_imports": [
+        "datetime",
+        "hashlib",
+        "pathlib"
+      ],
+      "git": {
+        "commits": 0,
+        "last_commit": null,
+        "recent_subjects": []
+      },
+      "summary": null
+    },
+    "src/plumb/repomap/entry_points.py": {
+      "size": 3894,
+      "mtime_ns": 1791040974184825957,
+      "sha256": "b51112b82b85d5676189d047aea1975b1b4c57bfb85b6c18006848afcf7b402b",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "_pyproject",
+          "parent": null,
+          "start_line": 26,
+          "end_line": 38
+        },
+        {
+          "kind": "function",
+          "name": "_package_json",
+          "parent": null,
+          "start_line": 41,
+          "end_line": 73
+        },
+        {
+          "kind": "function",
+          "name": "add",
+          "parent": "_package_json",
+          "start_line": 53,
+          "end_line": 58
+        },
+        {
+          "kind": "function",
+          "name": "_pubspec",
+          "parent": null,
+          "start_line": 76,
+          "end_line": 80
+        },
+        {
+          "kind": "function",
+          "name": "find_entry_points",
+          "parent": null,
+          "start_line": 83,
+          "end_line": 110
+        }
+      ],
+      "imports": [
+        {
+          "module": "json",
+          "line": 3,
+          "names": [],
+          "resolved": null
+        },
+        {
+          "module": "posixpath",
+          "line": 4,
+          "names": [],
+          "resolved": null
+        },
+        {
+          "module": "tomllib",
+          "line": 5,
+          "names": [],
+          "resolved": null
+        },
+        {
+          "module": "pathlib",
+          "line": 6,
+          "names": [
+            "Path"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "plumb.repomap.imports",
+          "line": 8,
+          "names": [
+            "JsResolver"
+          ],
+          "resolved": "src/plumb/repomap/imports.py"
+        },
+        {
+          "module": "plumb.repomap.imports",
+          "line": 8,
+          "names": [
+            "PythonResolver"
+          ],
+          "resolved": "src/plumb/repomap/imports.py"
+        },
+        {
+          "module": "plumb.repomap.model",
+          "line": 9,
+          "names": [
+            "EntryPoint"
+          ],
+          "resolved": "src/plumb/repomap/model.py"
+        }
+      ],
+      "external_imports": [
+        "json",
+        "pathlib",
+        "posixpath",
+        "tomllib"
+      ],
+      "git": {
+        "commits": 0,
+        "last_commit": null,
+        "recent_subjects": []
+      },
+      "summary": null
+    },
+    "src/plumb/repomap/files.py": {
+      "size": 2024,
+      "mtime_ns": 1791040911386314827,
+      "sha256": "5a448d40d8e586c576f07ac24473d94fddbf4cc1deb185c562b02b16d0681f32",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "_ignored",
+          "parent": null,
+          "start_line": 13,
+          "end_line": 15
+        },
+        {
+          "kind": "function",
+          "name": "_git_files",
+          "parent": null,
+          "start_line": 18,
+          "end_line": 30
+        },
+        {
+          "kind": "function",
+          "name": "_walk_files",
+          "parent": null,
+          "start_line": 33,
+          "end_line": 39
+        },
+        {
+          "kind": "function",
+          "name": "is_binary",
+          "parent": null,
+          "start_line": 42,
+          "end_line": 44
+        },
+        {
+          "kind": "function",
+          "name": "list_repo_files",
+          "parent": null,
+          "start_line": 47,
+          "end_line": 66
+        }
+      ],
+      "imports": [
+        {
+          "module": "os",
+          "line": 3,
+          "names": [],
+          "resolved": null
+        },
+        {
+          "module": "subprocess",
+          "line": 4,
+          "names": [],
+          "resolved": null
+        },
+        {
+          "module": "pathlib",
+          "line": 5,
+          "names": [
+            "Path"
+          ],
+          "resolved": null
+        }
+      ],
+      "external_imports": [
+        "os",
+        "pathlib",
+        "subprocess"
+      ],
+      "git": {
+        "commits": 0,
+        "last_commit": null,
+        "recent_subjects": []
+      },
+      "summary": null
+    },
+    "src/plumb/repomap/git.py": {
+      "size": 1746,
+      "mtime_ns": 1791040974184825957,
+      "sha256": "7ad8ecec7da909c7f73c701f2d2b3ad88d28790291e60d850c999fe6801b30a1",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "read_history",
+          "parent": null,
+          "start_line": 15,
+          "end_line": 51
+        }
+      ],
+      "imports": [
+        {
+          "module": "subprocess",
+          "line": 3,
+          "names": [],
+          "resolved": null
+        },
+        {
+          "module": "datetime",
+          "line": 4,
+          "names": [
+            "datetime"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pathlib",
+          "line": 5,
+          "names": [
+            "Path"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "plumb.repomap.model",
+          "line": 7,
+          "names": [
+            "Commit"
+          ],
+          "resolved": "src/plumb/repomap/model.py"
+        },
+        {
+          "module": "plumb.repomap.model",
+          "line": 7,
+          "names": [
+            "GitInfo"
+          ],
+          "resolved": "src/plumb/repomap/model.py"
+        }
+      ],
+      "external_imports": [
+        "datetime",
+        "pathlib",
+        "subprocess"
+      ],
+      "git": {
+        "commits": 0,
+        "last_commit": null,
+        "recent_subjects": []
+      },
+      "summary": null
+    },
+    "src/plumb/repomap/imports.py": {
+      "size": 3556,
+      "mtime_ns": 1791040987157931548,
+      "sha256": "0bb3fed7c2a5d2c672109dad2c50ca05a0b1bd7aeca9d81bc2e70ba476da3485",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "Resolution",
+          "parent": null,
+          "start_line": 11,
+          "end_line": 13
+        },
+        {
+          "kind": "class",
+          "name": "PythonResolver",
+          "parent": null,
+          "start_line": 16,
+          "end_line": 62
+        },
+        {
+          "kind": "function",
+          "name": "__init__",
+          "parent": "PythonResolver",
+          "start_line": 17,
+          "end_line": 18
+        },
+        {
+          "kind": "function",
+          "name": "_module_file",
+          "parent": "PythonResolver",
+          "start_line": 20,
+          "end_line": 26
+        },
+        {
+          "kind": "function",
+          "name": "_absolute",
+          "parent": "PythonResolver",
+          "start_line": 28,
+          "end_line": 38
+        },
+        {
+          "kind": "function",
+          "name": "resolve",
+          "parent": "PythonResolver",
+          "start_line": 40,
+          "end_line": 62
+        },
+        {
+          "kind": "class",
+          "name": "JsResolver",
+          "parent": null,
+          "start_line": 65,
+          "end_line": 88
+        },
+        {
+          "kind": "function",
+          "name": "__init__",
+          "parent": "JsResolver",
+          "start_line": 66,
+          "end_line": 67
+        },
+        {
+          "kind": "function",
+          "name": "_find",
+          "parent": "JsResolver",
+          "start_line": 69,
+          "end_line": 77
+        },
+        {
+          "kind": "function",
+          "name": "resolve",
+          "parent": "JsResolver",
+          "start_line": 79,
+          "end_line": 88
+        }
+      ],
+      "imports": [
+        {
+          "module": "posixpath",
+          "line": 3,
+          "names": [],
+          "resolved": null
+        },
+        {
+          "module": "collections.abc",
+          "line": 4,
+          "names": [
+            "Iterable"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "dataclasses",
+          "line": 5,
+          "names": [
+            "dataclass"
+          ],
+          "resolved": null
+        }
+      ],
+      "external_imports": [
+        "collections",
+        "dataclasses",
+        "posixpath"
+      ],
+      "git": {
+        "commits": 0,
+        "last_commit": null,
+        "recent_subjects": []
+      },
+      "summary": null
+    },
+    "src/plumb/repomap/model.py": {
+      "size": 1706,
+      "mtime_ns": 1791040974138090469,
+      "sha256": "df3b3db716b7e8311fa3f5f72dba892cda88d4d6378e9a4498b1b503c4ede24d",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "Symbol",
+          "parent": null,
+          "start_line": 13,
+          "end_line": 18
+        },
+        {
+          "kind": "class",
+          "name": "Import",
+          "parent": null,
+          "start_line": 21,
+          "end_line": 26
+        },
+        {
+          "kind": "class",
+          "name": "GitInfo",
+          "parent": null,
+          "start_line": 29,
+          "end_line": 32
+        },
+        {
+          "kind": "class",
+          "name": "Summary",
+          "parent": null,
+          "start_line": 35,
+          "end_line": 38
+        },
+        {
+          "kind": "class",
+          "name": "FileRecord",
+          "parent": null,
+          "start_line": 41,
+          "end_line": 51
+        },
+        {
+          "kind": "class",
+          "name": "EntryPoint",
+          "parent": null,
+          "start_line": 54,
+          "end_line": 56
+        },
+        {
+          "kind": "class",
+          "name": "Commit",
+          "parent": null,
+          "start_line": 59,
+          "end_line": 61
+        },
+        {
+          "kind": "class",
+          "name": "RepoMap",
+          "parent": null,
+          "start_line": 64,
+          "end_line": 71
+        }
+      ],
+      "imports": [
+        {
+          "module": "typing",
+          "line": 3,
+          "names": [
+            "Literal"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 5,
+          "names": [
+            "AwareDatetime"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 5,
+          "names": [
+            "BaseModel"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pydantic",
+          "line": 5,
+          "names": [
+            "Field"
+          ],
+          "resolved": null
+        }
+      ],
+      "external_imports": [
+        "pydantic",
+        "typing"
+      ],
+      "git": {
+        "commits": 0,
+        "last_commit": null,
+        "recent_subjects": []
+      },
+      "summary": null
+    },
+    "src/plumb/repomap/parse.py": {
+      "size": 5792,
+      "mtime_ns": 1791040993739985120,
+      "sha256": "98533ba28e1bc4272f0de0c3b4d897f1eba97a0cb2d86576e287bd7fa24f727e",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [
+        {
+          "kind": "class",
+          "name": "RawImport",
+          "parent": null,
+          "start_line": 30,
+          "end_line": 36
+        },
+        {
+          "kind": "class",
+          "name": "ParseResult",
+          "parent": null,
+          "start_line": 40,
+          "end_line": 44
+        },
+        {
+          "kind": "function",
+          "name": "detect_language",
+          "parent": null,
+          "start_line": 47,
+          "end_line": 54
+        },
+        {
+          "kind": "function",
+          "name": "_symbols",
+          "parent": null,
+          "start_line": 57,
+          "end_line": 77
+        },
+        {
+          "kind": "function",
+          "name": "visit",
+          "parent": "_symbols",
+          "start_line": 62,
+          "end_line": 74
+        },
+        {
+          "kind": "function",
+          "name": "_text",
+          "parent": null,
+          "start_line": 80,
+          "end_line": 83
+        },
+        {
+          "kind": "function",
+          "name": "_walk",
+          "parent": null,
+          "start_line": 86,
+          "end_line": 89
+        },
+        {
+          "kind": "function",
+          "name": "_python_imports",
+          "parent": null,
+          "start_line": 92,
+          "end_line": 119
+        },
+        {
+          "kind": "function",
+          "name": "_string_value",
+          "parent": null,
+          "start_line": 122,
+          "end_line": 125
+        },
+        {
+          "kind": "function",
+          "name": "_js_imports",
+          "parent": null,
+          "start_line": 128,
+          "end_line": 148
+        },
+        {
+          "kind": "function",
+          "name": "parse_file",
+          "parent": null,
+          "start_line": 151,
+          "end_line": 169
+        }
+      ],
+      "imports": [
+        {
+          "module": "dataclasses",
+          "line": 7,
+          "names": [
+            "dataclass"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "dataclasses",
+          "line": 7,
+          "names": [
+            "field"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pathlib",
+          "line": 8,
+          "names": [
+            "PurePosixPath"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "tree_sitter_language_pack",
+          "line": 10,
+          "names": [],
+          "resolved": null
+        },
+        {
+          "module": "tree_sitter",
+          "line": 11,
+          "names": [
+            "Node"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "plumb.repomap.model",
+          "line": 13,
+          "names": [
+            "ParseLevel"
+          ],
+          "resolved": "src/plumb/repomap/model.py"
+        },
+        {
+          "module": "plumb.repomap.model",
+          "line": 13,
+          "names": [
+            "Symbol"
+          ],
+          "resolved": "src/plumb/repomap/model.py"
+        }
+      ],
+      "external_imports": [
+        "dataclasses",
+        "pathlib",
+        "tree_sitter",
+        "tree_sitter_language_pack"
+      ],
+      "git": {
+        "commits": 0,
+        "last_commit": null,
+        "recent_subjects": []
+      },
+      "summary": null
+    },
+    "src/plumb/tools/__init__.py": {
+      "size": 49,
+      "mtime_ns": 1791037770333973144,
+      "sha256": "c8b7b81052dbf36a9243c6c83cf77ab54f02b1866bc4f6e13c5605015b90041d",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [],
+      "imports": [],
+      "external_imports": [],
+      "git": {
+        "commits": 1,
+        "last_commit": "2026-10-03T15:36:40+01:00",
+        "recent_subjects": [
+          "feat: add initial project structure and core functionality for Codebase Tutor"
+        ]
+      },
+      "summary": null
+    },
+    "src/plumb/ui/__init__.py": {
+      "size": 67,
+      "mtime_ns": 1791037770333973144,
+      "sha256": "7fdc68a082ddb5f582a1a6d2433cde018a5c44f3f7ad7c41aea39213a9534a3a",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [],
+      "imports": [],
+      "external_imports": [],
+      "git": {
+        "commits": 1,
+        "last_commit": "2026-10-03T15:36:40+01:00",
+        "recent_subjects": [
+          "feat: add initial project structure and core functionality for Codebase Tutor"
+        ]
+      },
+      "summary": null
+    },
+    "tests/test_cli.py": {
+      "size": 295,
+      "mtime_ns": 1791037770345831327,
+      "sha256": "8ac7b56977e246a0c779e9186f6b9ac249be22bb2ae2d28e1a4903208af9debc",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "test_help_lists_commands",
+          "parent": null,
+          "start_line": 8,
+          "end_line": 12
+        }
+      ],
+      "imports": [
+        {
+          "module": "typer.testing",
+          "line": 1,
+          "names": [
+            "CliRunner"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "plumb.cli.app",
+          "line": 3,
+          "names": [
+            "app"
+          ],
+          "resolved": "src/plumb/cli/app.py"
+        }
+      ],
+      "external_imports": [
+        "typer"
+      ],
+      "git": {
+        "commits": 1,
+        "last_commit": "2026-10-03T15:36:40+01:00",
+        "recent_subjects": [
+          "feat: add initial project structure and core functionality for Codebase Tutor"
+        ]
+      },
+      "summary": null
+    },
+    "tests/test_memory.py": {
+      "size": 5132,
+      "mtime_ns": 1791039140895941921,
+      "sha256": "99882a7f91b839997331b4227a24f1208dd42ac9f6faf0d8d565e84b6d27335f",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "tutor_dir",
+          "parent": null,
+          "start_line": 22,
+          "end_line": 23
+        },
+        {
+          "kind": "function",
+          "name": "test_mastery_round_trip",
+          "parent": null,
+          "start_line": 26,
+          "end_line": 40
+        },
+        {
+          "kind": "function",
+          "name": "test_mastery_rejects_non_slug_key",
+          "parent": null,
+          "start_line": 43,
+          "end_line": 51
+        },
+        {
+          "kind": "function",
+          "name": "test_skipped_round_trip",
+          "parent": null,
+          "start_line": 54,
+          "end_line": 66
+        },
+        {
+          "kind": "function",
+          "name": "test_decisions_round_trip",
+          "parent": null,
+          "start_line": 69,
+          "end_line": 92
+        },
+        {
+          "kind": "function",
+          "name": "test_decision_label_is_restricted",
+          "parent": null,
+          "start_line": 95,
+          "end_line": 104
+        },
+        {
+          "kind": "function",
+          "name": "test_session_round_trip_and_append_only",
+          "parent": null,
+          "start_line": 107,
+          "end_line": 121
+        },
+        {
+          "kind": "function",
+          "name": "test_missing_files_load_empty",
+          "parent": null,
+          "start_line": 124,
+          "end_line": 128
+        },
+        {
+          "kind": "function",
+          "name": "test_corrupt_json_raises_and_is_left_untouched",
+          "parent": null,
+          "start_line": 131,
+          "end_line": 138
+        },
+        {
+          "kind": "function",
+          "name": "test_corrupt_session_line_names_the_line",
+          "parent": null,
+          "start_line": 141,
+          "end_line": 147
+        },
+        {
+          "kind": "function",
+          "name": "test_atomic_save_leaves_no_temp_files",
+          "parent": null,
+          "start_line": 150,
+          "end_line": 153
+        },
+        {
+          "kind": "function",
+          "name": "test_tutor_dir_uses_git_root",
+          "parent": null,
+          "start_line": 156,
+          "end_line": 160
+        },
+        {
+          "kind": "function",
+          "name": "test_tutor_dir_falls_back_to_cwd",
+          "parent": null,
+          "start_line": 163,
+          "end_line": 164
+        }
+      ],
+      "imports": [
+        {
+          "module": "datetime",
+          "line": 1,
+          "names": [
+            "UTC"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "datetime",
+          "line": 1,
+          "names": [
+            "datetime"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pathlib",
+          "line": 2,
+          "names": [
+            "Path"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pytest",
+          "line": 4,
+          "names": [],
+          "resolved": null
+        },
+        {
+          "module": "plumb.memory.decisions",
+          "line": 6,
+          "names": [
+            "Decision"
+          ],
+          "resolved": "src/plumb/memory/decisions.py"
+        },
+        {
+          "module": "plumb.memory.decisions",
+          "line": 6,
+          "names": [
+            "Decisions"
+          ],
+          "resolved": "src/plumb/memory/decisions.py"
+        },
+        {
+          "module": "plumb.memory.decisions",
+          "line": 6,
+          "names": [
+            "load_decisions"
+          ],
+          "resolved": "src/plumb/memory/decisions.py"
+        },
+        {
+          "module": "plumb.memory.decisions",
+          "line": 6,
+          "names": [
+            "save_decisions"
+          ],
+          "resolved": "src/plumb/memory/decisions.py"
+        },
+        {
+          "module": "plumb.memory.io",
+          "line": 7,
+          "names": [
+            "CorruptMemoryFile"
+          ],
+          "resolved": "src/plumb/memory/io.py"
+        },
+        {
+          "module": "plumb.memory.mastery",
+          "line": 8,
+          "names": [
+            "Concept"
+          ],
+          "resolved": "src/plumb/memory/mastery.py"
+        },
+        {
+          "module": "plumb.memory.mastery",
+          "line": 8,
+          "names": [
+            "Mastery"
+          ],
+          "resolved": "src/plumb/memory/mastery.py"
+        },
+        {
+          "module": "plumb.memory.mastery",
+          "line": 8,
+          "names": [
+            "load_mastery"
+          ],
+          "resolved": "src/plumb/memory/mastery.py"
+        },
+        {
+          "module": "plumb.memory.mastery",
+          "line": 8,
+          "names": [
+            "save_mastery"
+          ],
+          "resolved": "src/plumb/memory/mastery.py"
+        },
+        {
+          "module": "plumb.memory.paths",
+          "line": 9,
+          "names": [
+            "find_tutor_dir"
+          ],
+          "resolved": "src/plumb/memory/paths.py"
+        },
+        {
+          "module": "plumb.memory.sessions",
+          "line": 10,
+          "names": [
+            "SessionEvent"
+          ],
+          "resolved": "src/plumb/memory/sessions.py"
+        },
+        {
+          "module": "plumb.memory.sessions",
+          "line": 10,
+          "names": [
+            "append_event"
+          ],
+          "resolved": "src/plumb/memory/sessions.py"
+        },
+        {
+          "module": "plumb.memory.sessions",
+          "line": 10,
+          "names": [
+            "new_session_path"
+          ],
+          "resolved": "src/plumb/memory/sessions.py"
+        },
+        {
+          "module": "plumb.memory.sessions",
+          "line": 10,
+          "names": [
+            "read_session"
+          ],
+          "resolved": "src/plumb/memory/sessions.py"
+        },
+        {
+          "module": "plumb.memory.skipped",
+          "line": 16,
+          "names": [
+            "Skipped"
+          ],
+          "resolved": "src/plumb/memory/skipped.py"
+        },
+        {
+          "module": "plumb.memory.skipped",
+          "line": 16,
+          "names": [
+            "SkippedQuestion"
+          ],
+          "resolved": "src/plumb/memory/skipped.py"
+        },
+        {
+          "module": "plumb.memory.skipped",
+          "line": 16,
+          "names": [
+            "load_skipped"
+          ],
+          "resolved": "src/plumb/memory/skipped.py"
+        },
+        {
+          "module": "plumb.memory.skipped",
+          "line": 16,
+          "names": [
+            "save_skipped"
+          ],
+          "resolved": "src/plumb/memory/skipped.py"
+        }
+      ],
+      "external_imports": [
+        "datetime",
+        "pathlib",
+        "pytest"
+      ],
+      "git": {
+        "commits": 0,
+        "last_commit": null,
+        "recent_subjects": []
+      },
+      "summary": null
+    },
+    "tests/test_repomap.py": {
+      "size": 7821,
+      "mtime_ns": 1791041040474396280,
+      "sha256": "7fa0f8df791b680a8f59bdebdba806d040fd1cae56d312282ce3e1f51526394a",
+      "language": "python",
+      "parsed": "full",
+      "symbols": [
+        {
+          "kind": "function",
+          "name": "write",
+          "parent": null,
+          "start_line": 17,
+          "end_line": 21
+        },
+        {
+          "kind": "function",
+          "name": "git",
+          "parent": null,
+          "start_line": 24,
+          "end_line": 30
+        },
+        {
+          "kind": "function",
+          "name": "repo",
+          "parent": null,
+          "start_line": 34,
+          "end_line": 80
+        },
+        {
+          "kind": "function",
+          "name": "test_file_listing_respects_git_and_fixed_ignores",
+          "parent": null,
+          "start_line": 83,
+          "end_line": 89
+        },
+        {
+          "kind": "function",
+          "name": "test_file_listing_without_git_uses_fixed_list",
+          "parent": null,
+          "start_line": 92,
+          "end_line": 96
+        },
+        {
+          "kind": "function",
+          "name": "test_python_symbols_and_imports",
+          "parent": null,
+          "start_line": 99,
+          "end_line": 114
+        },
+        {
+          "kind": "function",
+          "name": "test_js_imports",
+          "parent": null,
+          "start_line": 117,
+          "end_line": 121
+        },
+        {
+          "kind": "function",
+          "name": "test_other_grammar_gets_symbols_only",
+          "parent": null,
+          "start_line": 124,
+          "end_line": 128
+        },
+        {
+          "kind": "function",
+          "name": "test_unsupported_language_falls_back",
+          "parent": null,
+          "start_line": 131,
+          "end_line": 134
+        },
+        {
+          "kind": "function",
+          "name": "test_parse_failure_falls_back",
+          "parent": null,
+          "start_line": 137,
+          "end_line": 144
+        },
+        {
+          "kind": "function",
+          "name": "boom",
+          "parent": "test_parse_failure_falls_back",
+          "start_line": 140,
+          "end_line": 141
+        },
+        {
+          "kind": "function",
+          "name": "test_build_map",
+          "parent": null,
+          "start_line": 147,
+          "end_line": 175
+        },
+        {
+          "kind": "function",
+          "name": "test_refresh_reuses_unchanged_and_reparses_changed",
+          "parent": null,
+          "start_line": 178,
+          "end_line": 209
+        },
+        {
+          "kind": "function",
+          "name": "test_build_without_git_history",
+          "parent": null,
+          "start_line": 212,
+          "end_line": 218
+        }
+      ],
+      "imports": [
+        {
+          "module": "json",
+          "line": 1,
+          "names": [],
+          "resolved": null
+        },
+        {
+          "module": "os",
+          "line": 2,
+          "names": [],
+          "resolved": null
+        },
+        {
+          "module": "subprocess",
+          "line": 3,
+          "names": [],
+          "resolved": null
+        },
+        {
+          "module": "datetime",
+          "line": 4,
+          "names": [
+            "UTC"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "datetime",
+          "line": 4,
+          "names": [
+            "datetime"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pathlib",
+          "line": 5,
+          "names": [
+            "Path"
+          ],
+          "resolved": null
+        },
+        {
+          "module": "pytest",
+          "line": 7,
+          "names": [],
+          "resolved": null
+        },
+        {
+          "module": "plumb.repomap.builder",
+          "line": 9,
+          "names": [
+            "build_repo_map"
+          ],
+          "resolved": "src/plumb/repomap/builder.py"
+        },
+        {
+          "module": "plumb.repomap.files",
+          "line": 10,
+          "names": [
+            "list_repo_files"
+          ],
+          "resolved": "src/plumb/repomap/files.py"
+        },
+        {
+          "module": "plumb.repomap.model",
+          "line": 11,
+          "names": [
+            "Summary"
+          ],
+          "resolved": "src/plumb/repomap/model.py"
+        },
+        {
+          "module": "plumb.repomap.parse",
+          "line": 12,
+          "names": [
+            "parse_file"
+          ],
+          "resolved": "src/plumb/repomap/parse.py"
+        },
+        {
+          "module": "plumb.repomap",
+          "line": 138,
+          "names": [
+            "parse"
+          ],
+          "resolved": "src/plumb/repomap/parse.py"
+        },
+        {
+          "module": "plumb.memory.io",
+          "line": 190,
+          "names": [
+            "save_json"
+          ],
+          "resolved": "src/plumb/memory/io.py"
+        }
+      ],
+      "external_imports": [
+        "datetime",
+        "json",
+        "os",
+        "pathlib",
+        "pytest",
+        "subprocess"
+      ],
+      "git": {
+        "commits": 0,
+        "last_commit": null,
+        "recent_subjects": []
+      },
+      "summary": null
+    },
+    "uv.lock": {
+      "size": 34084,
+      "mtime_ns": 1791040856164865368,
+      "sha256": "83433dcc116b9717169bc58dcd8c245ea33a0cf05ae1e113fa09c2bb700b64f6",
+      "language": null,
+      "parsed": "fallback",
+      "symbols": [],
+      "imports": [],
+      "external_imports": [],
+      "git": {
+        "commits": 1,
+        "last_commit": "2026-10-03T15:36:40+01:00",
+        "recent_subjects": [
+          "feat: add initial project structure and core functionality for Codebase Tutor"
+        ]
+      },
+      "summary": null
+    }
+  },
+  "import_graph": {
+    "src/plumb/__init__.py": [],
+    "src/plumb/cli/__init__.py": [],
+    "src/plumb/cli/app.py": [
+      "src/plumb/memory/paths.py",
+      "src/plumb/repomap/builder.py"
+    ],
+    "src/plumb/config.py": [],
+    "src/plumb/engine/__init__.py": [],
+    "src/plumb/memory/__init__.py": [],
+    "src/plumb/memory/commands.py": [],
+    "src/plumb/memory/decisions.py": [
+      "src/plumb/memory/commands.py",
+      "src/plumb/memory/io.py"
+    ],
+    "src/plumb/memory/io.py": [],
+    "src/plumb/memory/mastery.py": [
+      "src/plumb/memory/io.py"
+    ],
+    "src/plumb/memory/paths.py": [],
+    "src/plumb/memory/sessions.py": [
+      "src/plumb/memory/commands.py",
+      "src/plumb/memory/io.py"
+    ],
+    "src/plumb/memory/skipped.py": [
+      "src/plumb/memory/commands.py",
+      "src/plumb/memory/io.py"
+    ],
+    "src/plumb/model/__init__.py": [],
+    "src/plumb/repomap/__init__.py": [],
+    "src/plumb/repomap/builder.py": [
+      "src/plumb/memory/io.py",
+      "src/plumb/repomap/entry_points.py",
+      "src/plumb/repomap/files.py",
+      "src/plumb/repomap/git.py",
+      "src/plumb/repomap/imports.py",
+      "src/plumb/repomap/model.py",
+      "src/plumb/repomap/parse.py"
+    ],
+    "src/plumb/repomap/entry_points.py": [
+      "src/plumb/repomap/imports.py",
+      "src/plumb/repomap/model.py"
+    ],
+    "src/plumb/repomap/files.py": [],
+    "src/plumb/repomap/git.py": [
+      "src/plumb/repomap/model.py"
+    ],
+    "src/plumb/repomap/imports.py": [],
+    "src/plumb/repomap/model.py": [],
+    "src/plumb/repomap/parse.py": [
+      "src/plumb/repomap/model.py"
+    ],
+    "src/plumb/tools/__init__.py": [],
+    "src/plumb/ui/__init__.py": [],
+    "tests/test_cli.py": [
+      "src/plumb/cli/app.py"
+    ],
+    "tests/test_memory.py": [
+      "src/plumb/memory/decisions.py",
+      "src/plumb/memory/io.py",
+      "src/plumb/memory/mastery.py",
+      "src/plumb/memory/paths.py",
+      "src/plumb/memory/sessions.py",
+      "src/plumb/memory/skipped.py"
+    ],
+    "tests/test_repomap.py": [
+      "src/plumb/memory/io.py",
+      "src/plumb/repomap/builder.py",
+      "src/plumb/repomap/files.py",
+      "src/plumb/repomap/model.py",
+      "src/plumb/repomap/parse.py"
+    ]
+  },
+  "entry_points": [
+    {
+      "path": "src/plumb/cli/app.py",
+      "reason": "pyproject script tutor; file name app.py"
+    },
+    {
+      "path": "tests/test_cli.py",
+      "reason": "import-graph root"
+    },
+    {
+      "path": "tests/test_memory.py",
+      "reason": "import-graph root"
+    },
+    {
+      "path": "tests/test_repomap.py",
+      "reason": "import-graph root"
+    }
+  ],
+  "recent_commits": [
+    {
+      "date": "2026-10-03T15:36:40+01:00",
+      "subject": "feat: add initial project structure and core functionality for Codebase Tutor"
+    },
+    {
+      "date": "2026-10-03T12:33:07+01:00",
+      "subject": "Initial commit"
+    }
+  ]
+}

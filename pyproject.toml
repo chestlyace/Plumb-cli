@@ -5,6 +5,8 @@ description = "A local-first command-line tool that teaches a developer her own 
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "pydantic>=2.13.5",
+    "tree-sitter-language-pack>=1.20.0",
     "typer",
 ]
 
