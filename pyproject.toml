@@ -1,0 +1,25 @@
+[project]
+name = "plumb"
+version = "0.1.0"
+description = "A local-first command-line tool that teaches a developer her own codebase."
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "typer",
+]
+
+[project.scripts]
+tutor = "plumb.cli.app:app"
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "ruff",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.17,<0.12.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,8 @@
+# Copy to ~/.config/plumb/config.toml and fill in the values.
+
+[model]
+name = ""  # No default. Chosen in phase 5 after testing.
+endpoint = "http://localhost:11434/v1"  # Ollama's OpenAI-compatible endpoint
+
+[limits]
+step_limit = 0  # No default. Chosen in phase 5.
