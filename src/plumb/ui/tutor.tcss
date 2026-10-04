@@ -1,0 +1,51 @@
+#panes {
+    layout: horizontal;
+    height: 1fr;
+}
+.-narrow #panes {
+    layout: vertical;
+}
+ExplanationLog {
+    width: 3fr;
+    border: round $primary;
+    border-title-align: left;
+    padding: 0 1;
+}
+QuestionPanel {
+    width: 2fr;
+    border: round $accent;
+    padding: 0 1;
+}
+.-narrow ExplanationLog, .-narrow QuestionPanel {
+    width: 1fr;
+    height: 1fr;
+}
+#question-title {
+    text-style: bold;
+    margin-bottom: 1;
+}
+#question-body {
+    height: auto;
+}
+#options {
+    height: auto;
+    max-height: 14;
+    border: none;
+}
+#status {
+    height: 1;
+    padding: 0 1;
+    color: $text-muted;
+}
+.notice {
+    color: $warning;
+    margin: 1 0;
+}
+.check {
+    color: $text-muted;
+    margin-bottom: 1;
+}
+.feedback {
+    margin: 1 0;
+    text-style: italic;
+}

@@ -1,8 +1,12 @@
-# Copy to ~/.config/plumb/config.toml and fill in the values.
+# Plumb creates ~/.config/plumb/config.toml with these values on first run.
 
 [model]
-name = ""  # No default. Chosen in phase 5 after testing.
+name = "gemma4:e4b"
 endpoint = "http://localhost:11434/v1"  # Ollama's OpenAI-compatible endpoint
+# Used automatically when the local model fails. A ":cloud" model runs on
+# Ollama's servers, so your code leaves your machine only when this kicks in.
+# Set to "" to never fall back.
+fallback_name = "gemma4:31b-cloud"
 
 [limits]
-step_limit = 0  # No default. Chosen in phase 5.
+step_limit = 12  # model calls per turn
