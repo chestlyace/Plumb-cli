@@ -5,8 +5,18 @@
 .-narrow #panes {
     layout: vertical;
 }
-ExplanationLog {
+#left {
     width: 3fr;
+}
+.-narrow #left {
+    width: 1fr;
+    height: 1fr;
+}
+#prompt {
+    margin-top: 0;
+}
+ExplanationLog {
+    height: 1fr;
     border: round $primary;
     border-title-align: left;
     padding: 0 1;
@@ -16,7 +26,7 @@ QuestionPanel {
     border: round $accent;
     padding: 0 1;
 }
-.-narrow ExplanationLog, .-narrow QuestionPanel {
+.-narrow QuestionPanel {
     width: 1fr;
     height: 1fr;
 }
@@ -29,7 +39,7 @@ QuestionPanel {
 }
 #options {
     height: auto;
-    max-height: 14;
+    max-height: 30;
     border: none;
 }
 #status {
@@ -48,4 +58,12 @@ QuestionPanel {
 .feedback {
     margin: 1 0;
     text-style: italic;
+}
+.user {
+    color: $accent;
+    text-style: bold;
+    margin: 1 0 0 0;
+}
+.info {
+    margin: 1 0 0 0;
 }

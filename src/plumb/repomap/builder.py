@@ -23,6 +23,7 @@ from plumb.repomap.model import (
     GitInfo,
     Import,
     RepoMap,
+    Summary,
 )
 from plumb.repomap.parse import (
     FULL_LANGUAGES,
@@ -157,4 +158,15 @@ def build_repo_map(root: Path, tutor_dir: Path, now: datetime) -> RepoMap:
         recent_commits=recent,
     )
     save_json(map_path, repo_map)
+    return repo_map
+
+
+def save_summary(tutor_dir: Path, rel: str, text: str, now: datetime) -> RepoMap:
+    """Store a module summary for `rel`, tied to its current hash."""
+    map_path = tutor_dir / FILE_NAME
+    repo_map = load_json(map_path, RepoMap)
+    record = repo_map.files.get(rel)
+    if record is not None:
+        record.summary = Summary(text=text, sha256=record.sha256, written_at=now)
+        save_json(map_path, repo_map)
     return repo_map

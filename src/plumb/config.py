@@ -6,20 +6,36 @@ from pathlib import Path
 
 CONFIG_PATH: Path = Path.home() / ".config" / "plumb" / "config.toml"
 
-DEFAULT_CONFIG = """\
-# Plumb settings. Created on first run; edit freely.
+DEFAULT_MODEL = "gemma4:e4b"
+DEFAULT_ENDPOINT = "http://localhost:11434/v1"
+DEFAULT_FALLBACK = "gemma4:31b-cloud"
+DEFAULT_STEP_LIMIT = 12
+
+
+def config_text(
+    model: str = DEFAULT_MODEL,
+    fallback: str | None = DEFAULT_FALLBACK,
+    endpoint: str = DEFAULT_ENDPOINT,
+    step_limit: int = DEFAULT_STEP_LIMIT,
+) -> str:
+    """config.toml with these values. `tutor setup` writes it again."""
+    return f"""\
+# Plumb settings. `tutor setup` rewrites this file; you can also edit it.
 
 [model]
-name = "gemma4:e4b"
-endpoint = "http://localhost:11434/v1"  # Ollama's OpenAI-compatible endpoint
+name = "{model}"
+endpoint = "{endpoint}"  # Ollama's OpenAI-compatible endpoint
 # Used automatically when the local model fails. A ":cloud" model runs on
 # Ollama's servers, so your code leaves your machine only when this kicks in.
 # Set to "" to never fall back.
-fallback_name = "gemma4:31b-cloud"
+fallback_name = "{fallback or ""}"
 
 [limits]
-step_limit = 12  # model calls per turn
+step_limit = {step_limit}  # model calls per turn
 """
+
+
+DEFAULT_CONFIG = config_text()
 
 
 @dataclass(frozen=True)

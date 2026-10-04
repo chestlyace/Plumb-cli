@@ -7,12 +7,12 @@ one JSON ParseResult per line on the protocol pipe.
 
 import json
 import os
-import selectors
+import queue
 import subprocess
 import sys
-import time
+import threading
 from types import TracebackType
-from typing import Self
+from typing import IO, Self
 
 from pydantic import TypeAdapter
 
@@ -35,6 +35,14 @@ def main() -> None:
         protocol.flush()
 
 
+def _pump(stream: IO[bytes] | None, lines: queue.Queue[bytes | None]) -> None:
+    """Move the worker's output lines onto a queue; None marks the end."""
+    if stream is not None:
+        for line in stream:
+            lines.put(line.rstrip(b"\r\n"))
+    lines.put(None)
+
+
 class IsolatedParser:
     """Sends files to a worker process, started on first use and restarted
     after a crash or timeout."""
@@ -47,7 +55,7 @@ class IsolatedParser:
         self.timeout = timeout
         self.command = command or [sys.executable, "-m", "plumb.repomap.worker"]
         self._process: subprocess.Popen[bytes] | None = None
-        self._buffer = b""
+        self._lines: queue.Queue[bytes | None] = queue.Queue()
 
     def __enter__(self) -> Self:
         return self
@@ -68,26 +76,19 @@ class IsolatedParser:
                 stdout=subprocess.PIPE,
                 stderr=subprocess.DEVNULL,
             )
-            self._buffer = b""
+            # A reader thread rather than select(): Windows can't select on pipes.
+            self._lines = queue.Queue()
+            threading.Thread(
+                target=_pump, args=(self._process.stdout, self._lines), daemon=True
+            ).start()
         return self._process
 
     def _read_line(self, process: subprocess.Popen[bytes]) -> bytes | None:
         """One line from the worker, or None on EOF or timeout."""
-        assert process.stdout is not None
-        fd = process.stdout.fileno()
-        deadline = time.monotonic() + self.timeout
-        with selectors.DefaultSelector() as selector:
-            selector.register(fd, selectors.EVENT_READ)
-            while b"\n" not in self._buffer:
-                remaining = deadline - time.monotonic()
-                if remaining <= 0 or not selector.select(remaining):
-                    return None
-                chunk = os.read(fd, 65536)
-                if not chunk:
-                    return None
-                self._buffer += chunk
-        line, _, self._buffer = self._buffer.partition(b"\n")
-        return line
+        try:
+            return self._lines.get(timeout=self.timeout)
+        except queue.Empty:
+            return None
 
     def _kill(self) -> None:
         if self._process is not None:

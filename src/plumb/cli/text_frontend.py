@@ -2,14 +2,17 @@
 
 import asyncio
 from collections.abc import Callable
+from typing import Protocol
 
 import typer
 
 from plumb.engine.frontend import (
     AskCheck,
+    AskChoice,
     AskQuestion,
     Checked,
     Feedback,
+    Info,
     Notice,
     SessionEvent,
     Status,
@@ -57,6 +60,8 @@ class TextFrontEnd:
                         )
                     )
                 typer.echo("")
+            case Info(text=text):
+                typer.echo(f"{text}\n")
             case Feedback(text=text):
                 typer.echo(f"{text}\n")
             case Summary(changes=changes):
@@ -68,14 +73,24 @@ class TextFrontEnd:
                 for change in changes:
                     typer.echo(f"  - {change}")
 
-    async def _read(self, prompt: str) -> str | None:
+    async def read_message(self, prompt: str = "> ") -> str | None:
+        """A line as typed, or None at end of input."""
         try:
-            return (await asyncio.to_thread(self.read_line, prompt)).strip().lower()
+            return (await asyncio.to_thread(self.read_line, prompt)).strip()
         except EOFError:
             return None
 
-    async def ask(self, prompt: AskQuestion | AskCheck) -> Answer:
-        if isinstance(prompt, AskCheck):
+    async def _read(self, prompt: str) -> str | None:
+        line = await self.read_message(prompt)
+        return line.lower() if line is not None else None
+
+    async def ask(self, prompt: AskQuestion | AskCheck | AskChoice) -> Answer:
+        if isinstance(prompt, AskChoice):
+            typer.echo(typer.style(prompt.title, bold=True))
+            for number, option in enumerate(prompt.options, 1):
+                typer.echo(f"  {number}) {option}")
+            count, keys = len(prompt.options), "s"
+        elif isinstance(prompt, AskCheck):
             check = prompt.check
             typer.echo(typer.style("Check question", bold=True))
             typer.echo(check.question)
@@ -108,3 +123,28 @@ class TextFrontEnd:
                 return Answer("option", int(reply))
             choices = ", ".join([str(n) for n in range(1, count + 1)] + list(keys))
             typer.echo(_dim(f"Type one of: {choices}"))
+
+
+class ChatLike(Protocol):
+    async def handle(self, message: str) -> bool: ...
+
+
+async def plain_chat(
+    chat: ChatLike, frontend: TextFrontEnd, first_message: str | None = None
+) -> None:
+    """The chat as a prompt loop. Ends on /quit or end of input."""
+    typer.echo(
+        "Describe a change you're about to make, or ask about your code. "
+        "/help lists the commands.\n"
+    )
+    if first_message:
+        typer.echo(f"> {first_message}")
+        if not await chat.handle(first_message):
+            return
+    while True:
+        line = await frontend.read_message()
+        if line is None:
+            return
+        if not await chat.handle(line):
+            return
+        typer.echo("")

@@ -33,6 +33,15 @@ class Toolbox:
         self.tutor_dir = tutor_dir
         self._repo_map = repo_map
 
+    def refresh(self, repo_map: RepoMap) -> None:
+        """Use a rebuilt repo map, e.g. after she changed files."""
+        self.scope = Scope(self.scope.root, repo_map)
+        self._repo_map = repo_map
+
+    @property
+    def files(self) -> frozenset[str]:
+        return self.scope.files
+
     @_never_raises
     def read_file(
         self, path: str, start_line: int = 1, end_line: int | None = None

@@ -52,6 +52,14 @@ STOP_MESSAGES = {
 }
 
 
+def fallback_notice(to_model: str) -> Notice:
+    return Notice(
+        f"The local model failed, so {to_model} is answering instead. "
+        "If it is a hosted model, the files it reads leave your machine.",
+        model=to_model,
+    )
+
+
 @dataclass
 class TurnOutcome:
     done: TurnDone | None
@@ -67,11 +75,12 @@ class PlanSession:
         tutor_dir: Path,
         frontend: FrontEnd,
         now: Callable[[], datetime],
+        recorder: Recorder | None = None,
     ) -> None:
         self.driver = driver
         self.toolbox = toolbox
         self.frontend = frontend
-        self.recorder = Recorder(tutor_dir, "plan", now)
+        self.recorder = recorder or Recorder(tutor_dir, "plan", now)
         self.tutor_dir = tutor_dir
 
     async def _turn(
@@ -107,13 +116,7 @@ class PlanSession:
                     if outcome.text:
                         self.frontend.emit(TextEnd())
                     outcome = TurnOutcome(done=None)
-                    self.frontend.emit(
-                        Notice(
-                            f"The local model failed, so {to_model} is answering instead. "
-                            "If it is a hosted model, the files it reads leave your machine.",
-                            model=to_model,
-                        )
-                    )
+                    self.frontend.emit(fallback_notice(to_model))
                 case Retry(name=name, reason=reason):
                     self.recorder.log("retry", name=name, reason=reason)
                 case RepeatBlocked(name=name, args=args):
@@ -159,16 +162,13 @@ class PlanSession:
             parts.append(self.toolbox.read_file(citation.file, citation.start, end))
         return "\n\n".join(parts) or "(no valid citations)"
 
-    async def run(self, request: str) -> None:
-        self.recorder.log("request", text=request)
-        self.frontend.emit(Status("Looking at your code"))
-        explained = await self._turn(
-            "explain", prompts.explain_instructions(self._memory_context()), request
-        )
+    async def _explain(
+        self, job: str, instructions: str, prompt: str
+    ) -> tuple[TurnOutcome, Report] | None:
+        """One tool-using, streamed explanation, checked and its reasons logged."""
+        explained = await self._turn(job, instructions, prompt)
         if explained.done is None:
-            self.frontend.emit(Summary(self.recorder.changes))
-            return
-
+            return None
         seen = "\n".join(explained.seen)
         report = check(
             explained.text, self.toolbox.scope, seen, explained.done.files_read
@@ -185,6 +185,33 @@ class PlanSession:
         self.frontend.emit(Checked(report))
         commits = {h[:7].lower(): s for h, s in GIT_LOG_LINE.findall(seen)}
         self.recorder.reasons(report.reasons, commits)
+        return explained, report
+
+    def _finish(self) -> None:
+        self.recorder.log("summary", changes=self.recorder.changes)
+        self.frontend.emit(Summary(self.recorder.changes))
+
+    async def answer(self, question: str) -> None:
+        """A question about her code: a cited, labeled answer, no quiz."""
+        self.recorder.start("ask")
+        self.recorder.log("request", text=question)
+        self.frontend.emit(Status("Looking at your code"))
+        await self._explain(
+            "answer", prompts.answer_instructions(self._memory_context()), question
+        )
+        self._finish()
+
+    async def run(self, request: str) -> None:
+        self.recorder.start("plan")
+        self.recorder.log("request", text=request)
+        self.frontend.emit(Status("Looking at your code"))
+        explained = await self._explain(
+            "explain", prompts.explain_instructions(self._memory_context()), request
+        )
+        if explained is None:
+            self._finish()
+            return
+        _, report = explained
 
         self.frontend.emit(Status("Writing questions"))
         asked = await self._turn(
@@ -195,8 +222,7 @@ class PlanSession:
         )
         if asked.done is not None:
             await self._ask_all(asked.done.output.questions)
-        self.recorder.log("summary", changes=self.recorder.changes)
-        self.frontend.emit(Summary(self.recorder.changes))
+        self._finish()
 
     async def _ask_all(self, questions: list[Question]) -> None:
         for number, question in enumerate(questions, 1):

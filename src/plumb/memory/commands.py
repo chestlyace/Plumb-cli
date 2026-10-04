@@ -1,5 +1,6 @@
-"""The commands that can record memory."""
+"""The commands and flows that can record memory."""
 
 from typing import Literal
 
-Command = Literal["plan", "review", "tour"]
+# plan, review, tour and ask are flows; chat is a session that runs them.
+Command = Literal["plan", "review", "tour", "ask", "chat"]

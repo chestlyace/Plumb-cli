@@ -24,6 +24,19 @@ Seven decisions shape the system; each one and its reason is below.
 | 6 | Agent loop | Model-driven loop with guardrails; the driver is a separate, swappable module | More capable, and fits the open agent harness theme. A small model may wander, so the fallback is a larger model or a code-driven pipeline using the same tools. |
 | 7 | MVP scope | All three commands (`plan`, `review`, `tour`), each kept thin | A fuller story for the challenge post. The cut order is in the MVP section. |
 
+## Interface change (Oct 4, 2026)
+
+During build step 7 the interface moved from one-shot commands to a chat. Running `tutor` in a repo opens a conversation: the explanation and conversation on the left, the open question on the right, and an input box at the bottom of the left pane. `tutor plan "..."` still works and opens the chat with that first message.
+
+- A message that describes a change runs the `plan` flow. A question about the code gets a cited, labeled answer with no quiz. A tiny model call tells the two apart; `/plan` and `/ask` force one.
+- Slash commands: `/plan`, `/ask`, `/review`, `/tour`, `/skipped`, `/help`, `/quit`.
+- Each message is handled on its own; the model does not see earlier messages.
+- One transcript per chat, `.tutor/sessions/<time>-chat.jsonl`. Reasons from answers go to the decision log like `plan`'s.
+- While the tutor works the input is locked; Esc cancels the current request, and answers already given stay saved.
+- `--plain` gives the same chat as a plain-text prompt loop.
+
+The local-first CLI decision (1) still holds: it is the same command reading her repo from disk; only how she talks to it changed.
+
 ## System components
 
 ```text
@@ -145,7 +158,7 @@ Build in this order, and finish each step's check before starting the next. Step
 | 4 | Read-only tools: `read_file`, `grep`, `list_dir`, `git log`, repo map lookup, memory lookup | Unit tests pass, and every tool refuses a path outside her repo and can never write |
 | 5 | Model adapter and driver: Ollama through PydanticAI behind our driver interface, step limit, validation with one retry, loop detection, and the fake scripted model for tests | A tool-using turn works with the fake model, and then with Gemma |
 | 6 | Session engine and the `plan` flow with a throwaway text front end: explanation with file citations, options, "I don't understand", skip, and memory updates | A full `plan` runs on her real repo in plain text, with every reason labeled documented, inferred or confirmed |
-| 7 | Textual UI on top of the engine's events: explanation panel, option select, streamed text | The `plan` flow runs inside Textual, and the engine still runs without it |
+| 7 | Chat interface in Textual on top of the engine's events: conversation panel with an input box, question panel, streamed text, slash commands, free questions, plain-text chat with `--plain` | `tutor` opens a chat where `plan` and free questions run, and the engine still runs without the UI |
 | 8 | `review`: read the diff, compare it with the recorded decisions, ask a couple of questions, update memory | A review runs after a real change made following a `plan` |
 | 9 | `tour`: from the entry points outward, one question per stop | A tour runs across her repo; this is the first thing cut if time runs short |
 | 10 | Hand-over: install on her machine, watch her use it, record her reaction, make the demo GIF, write the post | She has used it on her own project and you have her words |

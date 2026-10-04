@@ -1,29 +1,39 @@
-"""Widgets for the tutor screen."""
+"""Widgets for the chat screen."""
 
-import re
-
+from textual.app import ComposeResult
 from textual.containers import Vertical, VerticalScroll
 from textual.widgets import Markdown, OptionList, Static
 from textual.widgets.option_list import Option
 
-from plumb.engine.citations import CITATION, Report
-from plumb.engine.frontend import AskCheck, AskQuestion
+from plumb.engine.citations import Report, find
+from plumb.engine.frontend import AskCheck, AskChoice, AskQuestion
 
 REFRESH_SECONDS = 0.05
 
 
-def _highlight(text: str, bad: set[str] | None = None) -> str:
-    """Show citations as inline code; struck through when the check failed."""
-
-    def mark(match: re.Match[str]) -> str:
-        code = f"`{match.group(0)}`"
-        return f"~~{code}~~" if bad and match.group(0) in bad else code
-
-    return CITATION.sub(mark, text)
+def _highlight(text: str, report: Report | None = None) -> str:
+    """Show citations as inline code. With a report (after the check), only
+    real citations are marked, and failed ones are struck through."""
+    out, last = [], 0
+    for item in find(text):
+        raw = text[item.start : item.end]
+        if report is not None and raw not in report.written:
+            continue
+        in_code = (
+            text[item.start - 1 : item.start] == "`"
+            and text[item.end : item.end + 1] == "`"
+        )
+        mark = raw if in_code else f"`{raw}`"
+        if report is not None and not report.written[raw]:
+            mark = f"~~{mark}~~"
+        out.append(text[last : item.start] + mark)
+        last = item.end
+    out.append(text[last:])
+    return "".join(out)
 
 
 class ExplanationLog(VerticalScroll):
-    """The left pane: explanations, checks, feedback and notices, in order."""
+    """The conversation: her messages, the tutor's replies, checks and notices."""
 
     def __init__(self, **kwargs: object) -> None:
         super().__init__(**kwargs)  # type: ignore[arg-type]
@@ -52,15 +62,11 @@ class ExplanationLog(VerticalScroll):
         self._block = None
 
     def checked(self, report: Report) -> None:
-        """Re-render the last explanation with bad citations struck through."""
-        bad = {
-            f"[{c.file}:{c.start}{'-' + str(c.end) if c.end != c.start else ''}]"
-            for c in report.citations
-            if not c.ok
-        }
+        """Re-render the last reply with only real citations marked, and
+        failed ones struck through."""
         blocks = list(self.query(".explanation").results(Markdown))
-        if blocks and bad:
-            blocks[-1].update(_highlight(report.text, bad))
+        if blocks:
+            blocks[-1].update(_highlight(report.text, report))
         wrong = [c for c in report.citations if not c.ok]
         line = f"✓ {len(report.citations) - len(wrong)} citations ok"
         if wrong:
@@ -73,16 +79,23 @@ class ExplanationLog(VerticalScroll):
             line += f" · {len(report.untagged)} untagged reason(s) count as inferred"
         self.add_line(line, "check")
 
+    def add_user_message(self, text: str) -> None:
+        self.add_line(f"> {text}", "user")
+
+    def add_markdown(self, text: str) -> None:
+        self.mount(Markdown(text, classes="info"))
+        self.scroll_end(animate=False)
+
     def add_line(self, text: str, kind: str) -> None:
         self.mount(Static(text, classes=kind, markup=False))
         self.scroll_end(animate=False)
 
 
 class QuestionPanel(Vertical):
-    """The right pane: the open question and its options, or the summary."""
+    """The right pane: the open question and its options, or the last summary."""
 
-    def compose(self):  # type: ignore[no-untyped-def]
-        yield Static("Waiting for the tutor…", id="question-title", markup=False)
+    def compose(self) -> ComposeResult:
+        yield Static("", id="question-title", markup=False)
         yield Markdown("", id="question-body")
         yield OptionList(id="options")
 
@@ -102,9 +115,12 @@ class QuestionPanel(Vertical):
             option_list.highlighted = 0
             option_list.focus()
 
-    def show_question(self, prompt: AskQuestion | AskCheck) -> list[str]:
+    def show_question(self, prompt: AskQuestion | AskCheck | AskChoice) -> list[str]:
         """Show the prompt; return the keys it accepts."""
-        if isinstance(prompt, AskCheck):
+        if isinstance(prompt, AskChoice):
+            options = [(str(n), text) for n, text in enumerate(prompt.options, 1)]
+            self._show(prompt.title, "", options)
+        elif isinstance(prompt, AskCheck):
             check = prompt.check
             options = [(str(n), text) for n, text in enumerate(check.options, 1)]
             options.append(("s", "Skip"))
@@ -131,7 +147,19 @@ class QuestionPanel(Vertical):
             if changes
             else "Nothing to remember this time."
         )
-        self._show("Memory updated", body + "\n\n**Press q or Enter to exit.**", [])
+        self._show(
+            "Memory updated",
+            body + "\n\nAsk another question or describe a change.",
+            [],
+        )
+
+    def show_idle(self) -> None:
+        self._show(
+            "Your turn",
+            "Describe a change you're about to make, or ask about your code."
+            "\n\n`/help` for more.",
+            [],
+        )
 
     def show_waiting(self, text: str) -> None:
         self._show(text, "", [])

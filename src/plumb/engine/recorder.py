@@ -21,10 +21,16 @@ class Recorder:
         self, tutor_dir: Path, command: Command, now: Callable[[], datetime]
     ) -> None:
         self.tutor_dir = tutor_dir
-        self.command = command
         self.now = now
         self.session_path = new_session_path(tutor_dir, command, now())
+        # The flow being recorded (plan, ask, ...); a chat runs several.
+        self.command: Command = command
         self.changes: list[str] = []
+
+    def start(self, flow: Command) -> None:
+        """Begin recording one request of the given flow."""
+        self.command = flow
+        self.changes = []
 
     def log(self, type_: str, **payload: Any) -> None:
         if (
@@ -34,6 +40,7 @@ class Recorder:
             payload["content"] = (
                 payload["content"][:MAX_LOGGED_TOOL_RESULT] + " …(truncated)"
             )
+        payload.setdefault("flow", self.command)
         append_event(
             self.session_path, SessionEvent(ts=self.now(), type=type_, payload=payload)
         )

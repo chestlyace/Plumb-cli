@@ -43,6 +43,13 @@ class Checked:
 
 
 @dataclass(frozen=True)
+class Info:
+    """A reply that needs no model, e.g. /help or the skipped list (markdown)."""
+
+    text: str
+
+
+@dataclass(frozen=True)
 class Feedback:
     text: str
 
@@ -52,7 +59,7 @@ class Summary:
     changes: list[str] = field(default_factory=list)
 
 
-SessionEvent = Status | Text | TextEnd | Notice | Checked | Feedback | Summary
+SessionEvent = Status | Text | TextEnd | Notice | Checked | Info | Feedback | Summary
 
 
 @dataclass(frozen=True)
@@ -68,9 +75,17 @@ class AskCheck:
     check: CheckQuestion
 
 
+@dataclass(frozen=True)
+class AskChoice:
+    """Pick one of several items, or skip; e.g. which skipped question to revisit."""
+
+    title: str
+    options: list[str]
+
+
 class FrontEnd(Protocol):
     def emit(self, event: SessionEvent) -> None: ...
 
-    async def ask(self, prompt: AskQuestion | AskCheck) -> Answer:
-        """For a check question, `skip_rest` and `dont_understand` mean skip."""
+    async def ask(self, prompt: AskQuestion | AskCheck | AskChoice) -> Answer:
+        """For a check question or a choice, only options and skip apply."""
         ...
