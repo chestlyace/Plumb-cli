@@ -5,6 +5,7 @@
 
 $ErrorActionPreference = "Stop"
 $Source = "https://github.com/chestlyace/Plumb-cli/archive/refs/heads/main.zip"
+if ($env:PLUMB_SOURCE) { $Source = $env:PLUMB_SOURCE }  # CI installs the commit under test.
 
 Write-Host "Installing Plumb..." -ForegroundColor Cyan
 

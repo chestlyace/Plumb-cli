@@ -3,7 +3,7 @@
 #   curl -fsSL https://raw.githubusercontent.com/chestlyace/Plumb-cli/main/install.sh | sh
 # Then run `tutor` inside a project; the first run sets up Ollama and the model.
 set -eu
-SOURCE="https://github.com/chestlyace/Plumb-cli/archive/refs/heads/main.zip"
+SOURCE="${PLUMB_SOURCE:-https://github.com/chestlyace/Plumb-cli/archive/refs/heads/main.zip}"  # CI installs the commit under test
 
 echo "Installing Plumb..."
 if ! command -v uv >/dev/null 2>&1; then

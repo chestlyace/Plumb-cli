@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Tests (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Install dependencies
+        run: uv sync --python 3.14
+      - name: Lint
+        if: runner.os == 'Linux'
+        run: |
+          uv run ruff check
+          uv run ruff format --check
+      - name: Tests
+        run: uv run pytest -q
+
+  install-windows:
+    name: Install script (Windows)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run install.ps1 against this commit
+        shell: pwsh
+        env:
+          PLUMB_SOURCE: ${{ github.workspace }}
+        run: |
+          Get-Content ./install.ps1 -Raw | Invoke-Expression
+      - name: tutor runs
+        shell: pwsh
+        run: |
+          $env:Path = "$env:USERPROFILE\.local\bin;$env:Path"
+          tutor --help
+          tutor setup --help
+
+  install-unix:
+    name: Install script (Linux)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run install.sh against this commit
+        env:
+          PLUMB_SOURCE: ${{ github.workspace }}
+        run: sh ./install.sh
+      - name: tutor runs
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          tutor --help
+          tutor setup --help
